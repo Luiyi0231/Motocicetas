@@ -1,12 +1,54 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\lsgr0\\source\\repos\\Motos\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{311523F1-24B8-49C1-82B7-B54AB155AB45}|Modulo_Motos\\Modulo_Motos.csproj|c:\\users\\lsgr0\\source\\repos\\motos\\modulo_motos\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{311523F1-24B8-49C1-82B7-B54AB155AB45}|Modulo_Motos\\Modulo_Motos.csproj|solutionrelative:modulo_motos\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{311523F1-24B8-49C1-82B7-B54AB155AB45}|Modulo_Motos\\Modulo_Motos.csproj|C:\\Users\\lsgr0\\source\\repos\\Motos\\modulo_motos\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{311523F1-24B8-49C1-82B7-B54AB155AB45}|Modulo_Motos\\Modulo_Motos.csproj|solutionrelative:modulo_motos\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\lsgr0\\source\\repos\\Motos\\Modulo_Motos\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "Modulo_Motos\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\lsgr0\\source\\repos\\Motos\\Modulo_Motos\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "Modulo_Motos\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-19T01:43:11.869Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Web.config",
+              "DocumentMoniker": "C:\\Users\\lsgr0\\source\\repos\\Motos\\Modulo_Motos\\Web.config",
+              "RelativeDocumentMoniker": "Modulo_Motos\\Web.config",
+              "ToolTip": "C:\\Users\\lsgr0\\source\\repos\\Motos\\Modulo_Motos\\Web.config",
+              "RelativeToolTip": "Modulo_Motos\\Web.config",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAACWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2024-10-19T01:14:23.847Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }
