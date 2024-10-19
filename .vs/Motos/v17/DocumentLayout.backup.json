@@ -3,12 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\lsgr0\\source\\repos\\Motos\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{311523F1-24B8-49C1-82B7-B54AB155AB45}|Modulo_Motos\\Modulo_Motos.csproj|c:\\users\\lsgr0\\source\\repos\\motos\\modulo_motos\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{311523F1-24B8-49C1-82B7-B54AB155AB45}|Modulo_Motos\\Modulo_Motos.csproj|solutionrelative:modulo_motos\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{0AAE7493-0ED7-40B6-B1BE-D48349D6E25C}|CapaEntidad\\CapaEntidad.csproj|c:\\users\\lsgr0\\source\\repos\\motos\\capaentidad\\motos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0AAE7493-0ED7-40B6-B1BE-D48349D6E25C}|CapaEntidad\\CapaEntidad.csproj|solutionrelative:capaentidad\\motos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{311523F1-24B8-49C1-82B7-B54AB155AB45}|Modulo_Motos\\Modulo_Motos.csproj|c:\\users\\lsgr0\\source\\repos\\motos\\modulo_motos\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
-      "RelativeMoniker": "D:0:0:{311523F1-24B8-49C1-82B7-B54AB155AB45}|Modulo_Motos\\Modulo_Motos.csproj|solutionrelative:modulo_motos\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+      "AbsoluteMoniker": "D:0:0:{311523F1-24B8-49C1-82B7-B54AB155AB45}|Modulo_Motos\\Modulo_Motos.csproj|c:\\users\\lsgr0\\source\\repos\\motos\\modulo_motos\\app_start\\bundleconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{311523F1-24B8-49C1-82B7-B54AB155AB45}|Modulo_Motos\\Modulo_Motos.csproj|solutionrelative:modulo_motos\\app_start\\bundleconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B8BAD45-B9EF-4870-BCFF-F5E898708F85}|CapaNegocio\\CapaNegocio.csproj|c:\\users\\lsgr0\\source\\repos\\motos\\capanegocio\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B8BAD45-B9EF-4870-BCFF-F5E898708F85}|CapaNegocio\\CapaNegocio.csproj|solutionrelative:capanegocio\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -23,27 +27,40 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "_Layout.cshtml",
-              "DocumentMoniker": "C:\\Users\\lsgr0\\source\\repos\\Motos\\Modulo_Motos\\Views\\Shared\\_Layout.cshtml",
-              "RelativeDocumentMoniker": "Modulo_Motos\\Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "C:\\Users\\lsgr0\\source\\repos\\Motos\\Modulo_Motos\\Views\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "Modulo_Motos\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-10-19T01:43:11.869Z",
+              "Title": "Motos.cs",
+              "DocumentMoniker": "C:\\Users\\lsgr0\\source\\repos\\Motos\\CapaEntidad\\Motos.cs",
+              "RelativeDocumentMoniker": "CapaEntidad\\Motos.cs",
+              "ToolTip": "C:\\Users\\lsgr0\\source\\repos\\Motos\\CapaEntidad\\Motos.cs",
+              "RelativeToolTip": "CapaEntidad\\Motos.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-19T04:44:32.226Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Class1.cs",
+              "DocumentMoniker": "C:\\Users\\lsgr0\\source\\repos\\Motos\\CapaNegocio\\Class1.cs",
+              "RelativeDocumentMoniker": "CapaNegocio\\Class1.cs",
+              "ToolTip": "C:\\Users\\lsgr0\\source\\repos\\Motos\\CapaNegocio\\Class1.cs",
+              "RelativeToolTip": "CapaNegocio\\Class1.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-19T04:39:44.411Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Web.config",
-              "DocumentMoniker": "C:\\Users\\lsgr0\\source\\repos\\Motos\\Modulo_Motos\\Web.config",
-              "RelativeDocumentMoniker": "Modulo_Motos\\Web.config",
-              "ToolTip": "C:\\Users\\lsgr0\\source\\repos\\Motos\\Modulo_Motos\\Web.config",
-              "RelativeToolTip": "Modulo_Motos\\Web.config",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAACWAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
-              "WhenOpened": "2024-10-19T01:14:23.847Z",
+              "Title": "BundleConfig.cs",
+              "DocumentMoniker": "C:\\Users\\lsgr0\\source\\repos\\Motos\\Modulo_Motos\\App_Start\\BundleConfig.cs",
+              "RelativeDocumentMoniker": "Modulo_Motos\\App_Start\\BundleConfig.cs",
+              "ToolTip": "C:\\Users\\lsgr0\\source\\repos\\Motos\\Modulo_Motos\\App_Start\\BundleConfig.cs",
+              "RelativeToolTip": "Modulo_Motos\\App_Start\\BundleConfig.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAA4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-19T03:13:16.892Z",
               "EditorCaption": ""
             }
           ]
