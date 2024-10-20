@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using CapaEntidad;
+using CapaNegocio;
+
 
 namespace Modulo_Motos.Controllers
 {
@@ -13,18 +16,14 @@ namespace Modulo_Motos.Controllers
             return View();
         }
 
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
+        public ActionResult Motos() { 
             return View();
         }
 
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
+        public JsonResult ListarMotos() { 
+            List<Moto> olista = new List<Moto>();
+            olista = new CN_Motos().Listar();
+            return Json(olista, JsonRequestBehavior.AllowGet);
         }
     }
 }

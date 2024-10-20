@@ -6,14 +6,16 @@ using System.Threading.Tasks;
 
 namespace CapaEntidad
 {
-    public class Motos
+    public class Moto
     {
-        public int IdMotos {  get; set; }
-        public string CodigoChasis { get; set; }
+        public int Id_Moto {  get; set; }
+        public string Codigo_Chasis { get; set; }
 
         public string Marca { get; set; }
         public string Modelo { get; set; }
         public string  Motor {  get; set; }
-        public DateTime FechaCompra {  get; set; } = DateTime.Now;
+        public string Fecha_Compra {  get; set; }
+
+        public int Stock { get; set; }
     }
 }
