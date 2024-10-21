@@ -1,11 +1,180 @@
 ﻿
 @{
     ViewBag.Title = "Motos";
-    //Layout = "~/View/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<ol class="breadcrumb mb-4">
+<ol class="breadcrumb mb-4 mt-4">
     <li class="breadcrumb-item"><a href="index.html">Información</a></li>
     <li class="breadcrumb-item active">Motos</li>
 </ol>
 
+<div class="card">
+    <div class="card-header">
+        <i class="fa-solid fa-motorcycle me-1"></i>>Motos
+    </div>
+    <div class="card-body">
+        <div class="row ">
+            <div class="col-12">
+                <button type="button" class="btn btn-success" onclick="abrirModal(null)">Crear Nuevo</button>
+            </div>
+        </div>
+        <hr />
+        <table id="tabla" class="display cell-border accordion" style="width:100%">
+            <thead>
+                <tr>
+                    <th>Codigo</th>
+                    <th>Marca</th>
+                    <th>Modelo</th>
+                    <th>Motor</th>
+                    <th>Fecha Compra</th>
+                    <th>Stock</th>
+                    <th></th>
+                </tr>
+
+            </thead>
+        </table>
+
+    </div>
+</div>
+
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="FormModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-dark text-white">
+                <h5 class="modal-title" id="exampleModalLabel">Motos</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <input id="txtid" type="hidden" value="0"/>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <label for="exampleFormControlInput1" class="form-label">Codigo</label>
+                        <input type="text" class="form-control" id="txtCodigo">
+                    </div>
+
+                    <div class="col-sm-6">
+                        <label for="exampleFormControlInput1" class="form-label">Marca</label>
+                        <input type="text" class="form-control" id="txtMarca">
+                    </div>
+
+                    <div class="col-sm-6">
+                        <label for="exampleFormControlInput1" class="form-label">Modelo</label>
+                        <input type="text" class="form-control" id="txtModelo">
+                    </div>
+
+                    <div class="col-sm-6">
+                        <label for="exampleFormControlInput1" class="form-label">Motor</label>
+                        <input type="text" class="form-control" id="txtMotor">
+                    </div>
+
+                    <div class="col-sm-6">
+                        <label for="exampleFormControlInput1" class="form-label">Fecha de compra</label>
+                        <input type="text" class="form-control" id="txtFecha_compra">
+                    </div>
+
+                    <div class="col-sm-6">
+                        <label for="exampleFormControlInput1" class="form-label">Stock</label>
+                        <input type="text" class="form-control" id="txtStock">
+                    </div>
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary" onclick="guardar()">Guardar </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section scripts {
+    <script>
+
+        var tabladata;      
+
+        tabladata = $("#tabla").DataTable({
+            responsive: true,
+            odering: false,
+            "ajax": {
+                url: '@Url.Action("ListarMotos", "Home")',
+                type: "GET",
+                dataType: "json"
+            },
+            "columns": [
+                { data: "Codigo_Chasis" },
+                { data: "Marca" },
+                { data: "Modelo" },
+                { data: "Motor" },
+                { data: "Fecha_Compra" },
+                { data: "Stock" },
+                {
+                    "defaultContent": '<button type="button" class="btn btn-primary btn-sm btn-editar"><i class="fas fa-pen"></i></button>' +
+                        '<button type="button" class="btn btn-danger btn-sm ms-2"><i class="fas fa-trash"></i></button>'
+
+                }
+            ],
+            "language": {
+                "url":  "https://cdn.datatables.net/plug-ins/2.1.8/i18n/es-ES.json"
+            }
+        });
+
+
+        function abrirModal(json) {
+            $("#txtid").val(0),
+            $("#txtCodigo").val(""),
+            $("#txtMarca").val(""),
+            $("#txtModelo").val(""),
+            $("#txtMotor").val(""),
+            $("#txtFecha_compra").val(""),
+            $("#txtStock").val("")
+
+            if (json != null) {
+                $("#txtid").val(json.Id_Moto),
+                $("#txtCodigo").val(json.Codigo_Chasis),
+                $("#txtMarca").val(json.Marca),
+                $("#txtModelo").val(json.Modelo),
+                $("#txtMotor").val(json.Motor),
+                $("#txtFecha_compra").val(json.Fecha_Compra),
+                $("#txtStock").val(json.Stock)
+            }
+
+            $('#FormModal').modal("show");
+        }
+
+        $("#tabla tbody").on("click", '.btn-editar', function () {
+            var filaSeleccionada = $(this).closest("tr");
+            var data = tabladata.row(filaSeleccionada).data();         
+            abrirModal(data)
+        })
+
+        function guardar() {
+
+            var Moto = {
+                Id_Moto: $("#txtid").val(),
+                Codigo_Chasis: $("#txtCodigo").val(),
+                Marca: $("#txtMarca").val(),
+                Modelo: $("#txtModelo").val(),
+                Motor: $("#txtMotor").val(),
+                Fecha_Compra: $("#txtFecha_compra").val(),
+                Stock: $("#txtStock").val()
+
+            }
+
+            if (Moto.Id_Moto == 0) {
+                alert("Crear Motos")
+            } else {
+                alert("Editar Motos")
+            }
+
+        }
+    </script>
+}

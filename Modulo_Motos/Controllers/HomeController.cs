@@ -20,10 +20,11 @@ namespace Modulo_Motos.Controllers
             return View();
         }
 
+        [HttpGet]
         public JsonResult ListarMotos() { 
             List<Moto> olista = new List<Moto>();
             olista = new CN_Motos().Listar();
-            return Json(olista, JsonRequestBehavior.AllowGet);
+            return Json(new { data = olista }, JsonRequestBehavior.AllowGet);
         }
     }
 }
