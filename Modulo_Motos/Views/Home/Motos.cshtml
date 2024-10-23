@@ -54,37 +54,43 @@
             </div>
             <div class="modal-body">
                 <input id="txtid" type="hidden" value="0"/>
-                <div class="row">
+                <div class="row g-2">
                     <div class="col-sm-6">
                         <label for="exampleFormControlInput1" class="form-label">Codigo</label>
-                        <input type="text" class="form-control" id="txtCodigo">
+                        <input type="text" class="form-control" id="txtCodigo" autocomplete="off">
                     </div>
 
                     <div class="col-sm-6">
                         <label for="exampleFormControlInput1" class="form-label">Marca</label>
-                        <input type="text" class="form-control" id="txtMarca">
+                        <input type="text" class="form-control" id="txtMarca" autocomplete="off">
                     </div>
 
                     <div class="col-sm-6">
                         <label for="exampleFormControlInput1" class="form-label">Modelo</label>
-                        <input type="text" class="form-control" id="txtModelo">
+                        <input type="text" class="form-control" id="txtModelo" autocomplete="off">
                     </div>
 
                     <div class="col-sm-6">
                         <label for="exampleFormControlInput1" class="form-label">Motor</label>
-                        <input type="text" class="form-control" id="txtMotor">
+                        <input type="text" class="form-control" id="txtMotor" autocomplete="off">
                     </div>
 
                     <div class="col-sm-6">
                         <label for="exampleFormControlInput1" class="form-label">Fecha de compra</label>
-                        <input type="text" class="form-control" id="txtFecha_compra">
+                        <input type="date" class="form-control" id="txtFecha_compra" autocomplete="off">
                     </div>
 
                     <div class="col-sm-6">
                         <label for="exampleFormControlInput1" class="form-label">Stock</label>
-                        <input type="text" class="form-control" id="txtStock">
+                        <input type="number" class="form-control" id="txtStock" autocomplete="off">
                     </div>
-
+                </div>
+                <div class="row mt-2">
+                    <div class="col-12">
+                        <div id="mensajeError" class="alert alert-danger" role="alert">
+                            This is a danger alert—check it out!
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="modal-footer">
@@ -99,7 +105,8 @@
 @section scripts {
     <script>
 
-        var tabladata;      
+        var tabladata;
+        var filaSeleccionada;
 
         tabladata = $("#tabla").DataTable({
             responsive: true,
@@ -118,7 +125,7 @@
                 { data: "Stock" },
                 {
                     "defaultContent": '<button type="button" class="btn btn-primary btn-sm btn-editar"><i class="fas fa-pen"></i></button>' +
-                        '<button type="button" class="btn btn-danger btn-sm ms-2"><i class="fas fa-trash"></i></button>'
+                        '<button type="button" class="btn btn-danger btn-sm ms-2 btn-eliminar"><i class="fas fa-trash"></i></button>'
 
                 }
             ],
@@ -129,6 +136,7 @@
 
 
         function abrirModal(json) {
+
             $("#txtid").val(0),
             $("#txtCodigo").val(""),
             $("#txtMarca").val(""),
@@ -136,8 +144,10 @@
             $("#txtMotor").val(""),
             $("#txtFecha_compra").val(""),
             $("#txtStock").val("")
+            $("#mensajeError").hide()
 
             if (json != null) {
+                console.log(json)
                 $("#txtid").val(json.Id_Moto),
                 $("#txtCodigo").val(json.Codigo_Chasis),
                 $("#txtMarca").val(json.Marca),
@@ -150,11 +160,53 @@
             $('#FormModal').modal("show");
         }
 
+        //btn editar
+
         $("#tabla tbody").on("click", '.btn-editar', function () {
-            var filaSeleccionada = $(this).closest("tr");
-            var data = tabladata.row(filaSeleccionada).data();         
-            abrirModal(data)
+            filaSeleccionada = $(this).closest("tr");
+            var data = tabladata.row(filaSeleccionada).data();
+            abrirModal(data);
         })
+
+        //btn Eliminar
+
+       $("#tabla tbody").on("click", '.btn-eliminar', function () {
+    var usuarioSeleccionado = $(this).closest("tr");
+    var data = tabladata.row(usuarioSeleccionado).data();
+
+    swal({
+        title: "Estas seguro?",
+        text: "¿Deseas eliminar el registro?",
+        type: "warning",
+        showCancelButton: true,
+        confirmButtonClass: "btn-primary",
+        confirmButtonText: "SI",
+        cancelButtonText: "NO",
+        closeOnConfirm: true
+    }, function () {
+        jQuery.ajax({
+            url: '@Url.Action("EliminarMoto", "Home")',
+            type: "POST",
+            data: JSON.stringify({ id: data.Id_Moto }),
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            success: function (data) {
+                if (data.Resultado) {
+                    tabladata.row(usuarioSeleccionado).remove().draw();
+                } else {
+                    swal("No se pudo eliminar", data.Mensaje, "error");
+                }
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+    });
+});
+
+
+
+
 
         function guardar() {
 
@@ -169,12 +221,53 @@
 
             }
 
-            if (Moto.Id_Moto == 0) {
-                alert("Crear Motos")
-            } else {
-                alert("Editar Motos")
-            }
+
+            jQuery.ajax({
+                url: '@Url.Action("GuardarMoto", "Home")',
+                type: "POST",
+                data: JSON.stringify({ objeto: Moto}),
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                success: function (data) {
+
+                    //debugger;
+                    //Nuevo registro
+                    if (Moto.Id_Moto == 0) {
+
+                        if (data.Resultado != 0) {
+                            Moto.Id_Moto = data.Resultado;
+                            tabladata.row.add(Moto).draw(false);
+                            $('#FormModal').modal("hide");
+                        } else {
+                            $("#mensajeError").text(data.Mensaje)
+                            $("#mensajeError").show()
+                        }
+                    } else {
+                        //Editar registro
+                        if (data.Resultado) {
+                            tabladata.row(filaSeleccionada).data(Moto).draw(false);
+                            filaSeleccionada = null;
+                            $('#FormModal').modal("hide");
+                        } else {
+                            $("#mensajeError").text(data.Mensaje)
+                            $("#mensajeError").show()
+                        }
+
+
+                    }
+                },
+                error: function (error) {
+
+                    console.log(error)
+                },
+                beforeSend: function (error) {
+
+                }
+
+            })
 
         }
+
+
     </script>
 }
